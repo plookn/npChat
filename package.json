@@ -1,0 +1,13 @@
+{
+  "name": "npChat",
+  "version": "0.0.0",
+  "description": "A preconfigured logged- and live-chat server",
+  "main": "index.js",
+  "dependencies": {
+    "restify": "^2.6.3",
+    "socket.io": "^0.9.16"
+  },
+  "devDependencies": {
+    "socket.io-client": "^0.9.16"
+  }
+}
