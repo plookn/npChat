@@ -1,5 +1,6 @@
 // Listening on the 'live-com' port
-var io = require('socket.io').listen(8081);
+var io = require('socket.io').listen(8081),
+    request = require('request');
 
 io.sockets.on('connection', function (socket) {
 
@@ -34,7 +35,8 @@ io.sockets.on('connection', function (socket) {
                 unauthenticatedError(socket, err);
             }
             else {
-                // TODO: Save messages via REST
+                request.post('http://localhost:8080/msg/'+target)
+                    .form({user: name, msg: data});
                 console.log('Live message from %s to %s: %s',
                             name, target, data);
             }
